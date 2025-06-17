@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cineverse</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img id="splash-logo" src="{{ url_for('static', filename='cineverse-logo.png') }}" alt="Cineverse Logo">
+    <div id="splash-text">
+      <span class="cine">Cine</span><span class="verse">Verse</span>
+    </div>
+  </div>
+
+
+  <!-- Main Page -->
+  <div id="main" class="hidden">
+    <div class="genre-container">
+      <img src="static/cineverse-logo.png" alt="Cineverse Logo">
+      <h1>Welcome To <strong>CineVerse 🎬</strong></h1>
+      <input type="text" id="genreInput" list="genres" placeholder="Enter a genre (e.g., action, horror)" />
+      <datalist id="genres">
+        <option value="Action">
+        <option value="Romance">
+        <option value="Comedy">
+        <option value="Thriller">
+        <option value="Horror">
+        <option value="Fantasy">
+        <option value="Musical">
+        <option value="Sport">
+        <option value="Sci-Fi">
+        <option value="Crime">
+      </datalist>
+
+      <button onclick="getMovies()">Find Movies</button>
+    </div>
+  </div>
+
+  <!-- Results Page -->
+  <div id="results" class="hidden">
+    <button id="backBtn" onclick="goBack()">🔙 Back</button>
+    <h2>Recommended Movies</h2>
+    <div id="movie-list"></div>
+  </div>
+
+
+  <!-- Popup -->
+<!-- Movie Detail Modal -->
+<div id="movie-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modal-image" src="" alt="Movie Poster" />
+    <h2 id="modal-title"></h2>
+    <p id="modal-genre"></p>
+    <p id="modal-rating"></p>
+    <p id="modal-year"></p>
+    <p id="modal-duration"></p>
+    <a id="modal-imdb" href="#" target="_blank">View on IMDb</a>
+  </div>
+</div>
+
+
+  <script src="static/script.js"></script>
+</body>
+</html>
